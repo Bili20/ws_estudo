@@ -17,7 +17,7 @@ app.use(express.static(diretorioPublico));
 const servidorHttp = http.createServer(app);
 
 servidorHttp.listen(porta, () =>
-  console.log(`ervidor escutando porta: ${porta}`)
+  console.log(`Servidor escutando porta: ${porta}`)
 );
 
 const io = new Server(servidorHttp);
