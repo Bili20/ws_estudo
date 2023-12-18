@@ -24,8 +24,4 @@ socket.on("excluir_documento_sucesso", (nome) => {
   alertarERedirecionar(nome);
 });
 
-/* socket.on("texto_documento", (texto) => {
-  atualizaTextoEditor(texto);
-}); */
-
 export { emitirTextoEditor, selecionarDocumento, emitirExcluirDocumento };

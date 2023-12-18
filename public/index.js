@@ -13,14 +13,13 @@ form.addEventListener("submit", (evento) => {
 function inserirLinkDocumento(nomeDocumento) {
   listaDocumentos.innerHTML += `
     <a
-        href="documento.html?nome=${nomeDocumento}"
-        class="list-group-item list-group-item-action"
-        id="documento-${nomeDocumento}"
+      href="/documento/index.html?nome=${nomeDocumento}"
+      class="list-group-item list-group-item-action"
+      id="documento-${nomeDocumento}"
     >
-        ${nomeDocumento}
+      ${nomeDocumento}
     </a>
-
-    `;
+  `;
 }
 
 function removerLinkDocumento(nomeDocumento) {
@@ -28,4 +27,5 @@ function removerLinkDocumento(nomeDocumento) {
 
   listaDocumentos.removeChild(documento);
 }
+
 export { inserirLinkDocumento, removerLinkDocumento };

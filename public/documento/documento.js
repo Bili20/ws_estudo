@@ -4,19 +4,22 @@ import {
   selecionarDocumento,
 } from "./socket-front-documento.js";
 
-const textoEditor = document.getElementById("editor-texto");
 const parametros = new URLSearchParams(window.location.search);
 const nomeDocumento = parametros.get("nome");
+
+const textoEditor = document.getElementById("editor-texto");
+const tituloDocumento = document.getElementById("titulo-documento");
 const botaoExcluir = document.getElementById("excluir-documento");
 
-const tituloDocumento = document.getElementById("titulo-documento");
-
-tituloDocumento.textContent = nomeDocumento || "Documento sem nome";
+tituloDocumento.textContent = nomeDocumento || "Documento sem título";
 
 selecionarDocumento(nomeDocumento);
 
 textoEditor.addEventListener("keyup", () => {
-  emitirTextoEditor({ texto: textoEditor.value, nomeDocumento });
+  emitirTextoEditor({
+    texto: textoEditor.value,
+    nomeDocumento,
+  });
 });
 
 function atualizaTextoEditor(texto) {
@@ -29,7 +32,7 @@ botaoExcluir.addEventListener("click", () => {
 
 function alertarERedirecionar(nome) {
   if (nome === nomeDocumento) {
-    alert(`Documento ${nome} excluido`);
+    alert(`Documento ${nome} excluído!`);
     window.location.href = "/";
   }
 }
